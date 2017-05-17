@@ -24,7 +24,7 @@ with gzip.open(file, 'rb') as f:
 #		if len(no_N) == 50:
 #			break
 
-#Barcodes w/ N		
+#Barcodes w/ N
 df = pd.DataFrame({'barcodes': has_N})
 df['forward'], df['reverse'] = zip(*df['barcodes'].apply(lambda x: x.split('+', 1)))
 grouped_N = df.groupby(['forward','reverse'])["barcodes"].count().reset_index(name="count")
@@ -42,8 +42,6 @@ print(pivoted)
 #heatmap = sns.heatmap(data=pivoted)
 #fig = heatmap.get_figure()
 #fig.savefig('heatmap.png')
-
-
 
 #Barcodes w/o N
 df_noN = pd.DataFrame({'barcodes': no_N})
